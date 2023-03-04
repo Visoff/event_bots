@@ -1,15 +1,16 @@
+import os
 import copy
 import json
 import telebot
 from telebot import types
-from count_votes import calculate
-from table import SendTable
-from sheets import update_sheets
+from .count_votes import calculate
+from .table import SendTable
+from .sheets import update_sheets
 def generate_judge_helper():
     bot_token = "5481709675:AAHXiR9vkhImbsGriupoCvlo1cSCC61KUMY"
     bot = telebot.TeleBot(bot_token)
 
-    file = open("setup.json", "r", encoding='utf-8')
+    file = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'setup.json'), "r", encoding='utf-8')
     setup_object = json.loads(file.read())
     file.close()
 
@@ -80,7 +81,7 @@ def generate_judge_helper():
 
     @bot.message_handler(commands=['load'])
     def start_message(message):
-        file = open("votes.json", "r", encoding='utf-8')
+        file = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'votes.json'), "r", encoding='utf-8')
         global current_vote
         current_vote = json.loads(file.read())
         file.close()
@@ -190,7 +191,7 @@ def generate_judge_helper():
                     markup = types.ReplyKeyboardRemove()
                     bot.send_message(message.chat.id, "Спасибо за оценку, комманды закончились", reply_markup=markup)
             SendTable(vote, bot, message)
-        file = open("votes.json", "w", encoding='utf-8')
+        file = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "votes.json"), "w", encoding='utf-8')
         json.dump(current_vote, file, ensure_ascii=False)
         file.close()
     print("bot is ready to work!")

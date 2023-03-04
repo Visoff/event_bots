@@ -1,5 +1,6 @@
 import gspread
 import json
+import os
 
 def update_sheets(votes):
     gc = gspread.service_account(filename="circular-light-367014-d28e8061df54.json")
@@ -41,7 +42,7 @@ def update_sheets(votes):
         i+=1
 
 if __name__ == "__main__":
-    f = open("votes.json", "r", encoding='utf-8')
+    f = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "votes.json"), "r", encoding='utf-8')
     votes = json.loads(f.read())
     f.close()
     update_sheets(votes)

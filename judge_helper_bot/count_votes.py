@@ -1,7 +1,8 @@
 import json
+import os
 
 def calculate():
-    file = open("votes.json", "r", encoding='utf-8')
+    file = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "votes.json"), "r", encoding='utf-8')
     votes = json.loads(file.read())
     file.close()
 
