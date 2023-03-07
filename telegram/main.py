@@ -4,7 +4,7 @@ def generate_bot():
     token = "5255432703:AAHr8pBOON_KUih3uC1lTHczGTdkUypYvMo"
     bot = telebot.TeleBot(token=token)
 
-    @bot.message_handler(content_types="text")
+    #@bot.message_handler(content_types="text")
     def q(message):
         bot.send_message(message.chat.id, "> "+message.text)
     
