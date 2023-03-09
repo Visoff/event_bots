@@ -36,9 +36,6 @@ def telegram_function():
     global data
     from telegram.main import generate_bot
     telegram_bot = generate_bot()
-    @telegram_bot.message_handler(commands=["h"])
-    def h(message):
-        telegram_bot.send_message(message.chat.id, data)
     telegram_bot.infinity_polling()
 telegram_thread = threading.Thread(target=telegram_function)
 telegram_thread.start()
