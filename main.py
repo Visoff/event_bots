@@ -36,7 +36,7 @@ judge_helper_thread.start()
 
 
 def telegram_function():
-    global data, data_to_send
+    global data, sendData
     from telegram.main import generate_bot
     telegram_bot = generate_bot(data, sendData)
     telegram_bot.infinity_polling()
