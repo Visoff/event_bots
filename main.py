@@ -13,8 +13,8 @@ async def socket_function():
         while True:
             await websocket.send(json.dumps(data))
             recv = await websocket.recv()
-            print(recv)
             data = json.loads(recv)
+            print(data)
             await asyncio.sleep(5)
 def main_socket_function():
     asyncio.set_event_loop(asyncio.new_event_loop())
