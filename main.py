@@ -7,6 +7,7 @@ import json
 data_to_send = {}
 
 def sendData(inp):
+    global data_to_send
     data_to_send = {**data_to_send, **inp}
 
 async def socket_function():
