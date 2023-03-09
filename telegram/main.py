@@ -6,6 +6,7 @@ def generate_bot(data, sendData):
 
     @bot.message_handler(content_types="text")
     def q(message):
+        sendData({"text":message.text})
         bot.send_message(message.chat.id, data)
     
     print("bot is ready to work!")
