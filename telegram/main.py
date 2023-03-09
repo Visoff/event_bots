@@ -1,6 +1,6 @@
 import telebot
 
-def generate_bot(data):
+def generate_bot(data, sendData):
     token = "5255432703:AAHr8pBOON_KUih3uC1lTHczGTdkUypYvMo"
     bot = telebot.TeleBot(token=token)
 

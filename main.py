@@ -4,14 +4,17 @@ import websockets
 import time
 import json
 
-data = {
+data_to_send = {
 }
+
+def sendData(inp):
+    data_to_send = {**data_to_send, **inp}
 
 async def socket_function():
     global data
     async with websockets.connect('wss://api.visoff.ru') as websocket:
         while True:
-            await websocket.send(json.dumps(data))
+            await websocket.send(json.dumps(data_to_send))
             recv = await websocket.recv()
             data = json.loads(recv)
             print(data)
@@ -35,7 +38,7 @@ judge_helper_thread.start()
 def telegram_function():
     global data
     from telegram.main import generate_bot
-    telegram_bot = generate_bot(data)
+    telegram_bot = generate_bot(data, sendData)
     telegram_bot.infinity_polling()
 telegram_thread = threading.Thread(target=telegram_function)
 telegram_thread.start()
