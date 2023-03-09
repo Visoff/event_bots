@@ -35,7 +35,7 @@ judge_helper_thread.start()
 def telegram_function():
     global data
     from telegram.main import generate_bot
-    telegram_bot = generate_bot()
+    telegram_bot = generate_bot(data)
     telegram_bot.infinity_polling()
 telegram_thread = threading.Thread(target=telegram_function)
 telegram_thread.start()
