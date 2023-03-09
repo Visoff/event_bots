@@ -35,8 +35,8 @@ time.sleep(10)
 def judge_helper_function():
     global bots
     from judge_helper_bot.main import generate_judge_helper
-    bots.judge_helper_bot = generate_judge_helper()
-    bots.judge_helper_bot.infinity_polling()
+    bots["judge_helper_bot"] = generate_judge_helper()
+    bots["judge_helper_bot"].infinity_polling()
 judge_helper_thread = threading.Thread(target=judge_helper_function)
 judge_helper_thread.start()
 
@@ -44,7 +44,7 @@ judge_helper_thread.start()
 def telegram_function():
     global data, sendData, bots
     from telegram.main import generate_bot
-    bots.telegram_bot = generate_bot(data, sendData)
-    bots.telegram_bot.infinity_polling()
+    bots["telegram_bot"] = generate_bot(data, sendData)
+    bots["telegram_bot"].infinity_polling()
 telegram_thread = threading.Thread(target=telegram_function)
 telegram_thread.start()
