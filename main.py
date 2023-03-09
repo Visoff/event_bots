@@ -48,3 +48,11 @@ def telegram_function():
     bots["telegram_bot"].infinity_polling()
 telegram_thread = threading.Thread(target=telegram_function)
 telegram_thread.start()
+
+#def vk_function():
+#    global data, sendData, bots
+#    from vk.main import generate_bot
+#    bots["vk_bot"] = generate_bot(data, sendData)
+#    bots["vk_bot"].infinity_polling()
+#vk_thread = threading.Thread(target=vk_function)
+#vk_thread.start()
