@@ -21,7 +21,7 @@ async def socket_function():
             recv = await websocket.recv()
             data = json.loads(recv)
             for message in data["telegram"]["needToSend"]:
-                bots["telegram_bot"].send_message(123, message)
+                bots["telegram_bot"].send_message(-831804290, message["text"])
             print(data)
             await asyncio.sleep(5)
 def main_socket_function():
