@@ -7,10 +7,8 @@ def generate_bot(data, sendData):
     @bot.message_handler(commands=["send"])
     def q(message):
         if (message.reply_to_message):
-            print(message.reply_to_message.text)
-        else:
-            sendData({"text":message.text})
-            bot.send_message(message.chat.id, "sent")
+            sendData({"text":message.reply_to_message.text})
+            bot.send_message(message.chat.id, "sent\n\n"+message.reply_to_message.text)
     
     print("bot is ready to work!")
     return bot
