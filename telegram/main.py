@@ -10,7 +10,7 @@ def generate_bot(data, sendData):
             sendData({"text":message.reply_to_message.text})
             bot.send_message(message.chat.id, "sent\n\n"+message.reply_to_message.text)
     
-    print("bot is ready to work!")
+    print("telegram bot is ready")
     return bot
 
 if (__name__ == "__main__"):

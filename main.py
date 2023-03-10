@@ -22,6 +22,7 @@ async def socket_function():
             data = json.loads(recv)
             for message in data["telegram"]["needToSend"]:
                 bots["telegram_bot"].send_message(-831804290, message["text"])
+                bots["vk_bot"].send(message["text"])
             print(data)
             await asyncio.sleep(5)
 def main_socket_function():
@@ -49,10 +50,9 @@ def telegram_function():
 telegram_thread = threading.Thread(target=telegram_function)
 telegram_thread.start()
 
-#def vk_function():
-#    global data, sendData, bots
-#    from vk.main import generate_bot
-#    bots["vk_bot"] = generate_bot(data, sendData)
-#    bots["vk_bot"].infinity_polling()
-#vk_thread = threading.Thread(target=vk_function)
-#vk_thread.start()
+def vk_function():
+    global data, sendData, bots
+    from vk.main import generate_bot
+    bots["vk_bot"] = generate_bot()
+vk_thread = threading.Thread(target=vk_function)
+vk_thread.start()
