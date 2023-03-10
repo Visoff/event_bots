@@ -54,5 +54,6 @@ def vk_function():
     global data, sendData, bots
     from vk.main import generate_bot
     bots["vk_bot"] = generate_bot()
+    bots["vk_bot"]["polling"]()
 vk_thread = threading.Thread(target=vk_function)
 vk_thread.start()
