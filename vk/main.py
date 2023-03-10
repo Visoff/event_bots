@@ -14,7 +14,7 @@ def generate_bot():
         vk_session.method('messages.send', {'random_id':random.randint(1, 1000000), 'user_id': 351463594, 'message': 'Hello, world!'})
 
     print("vk bot is ready")
-    return {polling, send}
+    return {"polling":polling, "send":send}
 
 if (__name__ == "__main__"):
     bot = generate_bot()
