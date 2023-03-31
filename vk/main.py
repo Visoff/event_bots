@@ -3,7 +3,7 @@ def generate_bot():
     import vk_api
     from vk_api.longpoll import VkLongPoll, VkEventType
 
-    vk_session = vk_api.VkApi(token='2f8e67fa9b1433144b127ea4e88a9d11df35b1474029f9b1799fa04759e6b91d7bf841c23ac34840d00ec')
+    vk_session = vk_api.VkApi(token='vk1.a.qg1d1aa9wPKA33tjYnhLKoAJjwE68ZU3v_zmfjyc94fsR2qidnxYOqnsll4PhrFi5_6XhM1_lE4kXHMVTBgzbO-gqcdTz0vGiOdJXspJZktk6FqhI3m-7plotkaKQFaG_lPYbO8U2qUQwKNO0UmxGGLtZtxoE1ubtw12CwJxRT6RzC1LtQ5iyBesV7Cx-MEMeRn3Ta1pDtr2d3x0LBUWXw')
     longpoll = VkLongPoll(vk_session)
     def polling():
         for event in longpoll.listen():
